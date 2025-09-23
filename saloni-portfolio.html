@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Color Palette Options - Choose your favorite!
+        const colorPalettes = {
+            // Option 1: Ocean Breeze (Current) - Vibrant blues and teals
+            oceanBreeze: {
+                'primary': '#00D4FF',
+                'secondary': '#8B5CF6', 
+                'accent': '#EC4899',
+                'success': '#10B981',
+                'warning': '#F59E0B',
+                'info': '#6366F1',
+                'dark-bg': '#0F172A',
+                'card-dark': '#1E293B',
+                'text-light': '#F1F5F9'
+            },
+            
+            // Option 2: Forest Zen - Calming greens and earth tones
+            forestZen: {
+                'primary': '#059669',
+                'secondary': '#0D9488',
+                'accent': '#84CC16',
+                'success': '#22C55E',
+                'warning': '#F59E0B',
+                'info': '#3B82F6',
+                'dark-bg': '#0F1419',
+                'card-dark': '#1F2937',
+                'text-light': '#F9FAFB'
+            },
+            
+            // Option 3: Sunset Warmth - Warm oranges and soft pinks
+            sunsetWarmth: {
+                'primary': '#F97316',
+                'secondary': '#EC4899',
+                'accent': '#F59E0B',
+                'success': '#10B981',
+                'warning': '#EF4444',
+                'info': '#8B5CF6',
+                'dark-bg': '#1C1917',
+                'card-dark': '#292524',
+                'text-light': '#FEF7F0'
+            },
+            
+            // Option 4: Lavender Dreams - Soft purples and blues
+            lavenderDreams: {
+                'primary': '#A855F7',
+                'secondary': '#6366F1',
+                'accent': '#EC4899',
+                'success': '#10B981',
+                'warning': '#F59E0B',
+                'info': '#3B82F6',
+                'dark-bg': '#1E1B4B',
+                'card-dark': '#312E81',
+                'text-light': '#F8FAFC'
+            },
+            
+            // Option 5: Rose Gold Elegance - Sophisticated pinks and golds
+            roseGoldElegance: {
+                'primary': '#E11D48',
+                'secondary': '#F59E0B',
+                'accent': '#EC4899',
+                'success': '#10B981',
+                'warning': '#F97316',
+                'info': '#6366F1',
+                'dark-bg': '#1F1F23',
+                'card-dark': '#2D2D30',
+                'text-light': '#FDF2F8'
+            },
+            
+            // Option 6: Midnight Blue - Professional deep blues
+            midnightBlue: {
+                'primary': '#1E40AF',
+                'secondary': '#3730A3',
+                'accent': '#0EA5E9',
+                'success': '#059669',
+                'warning': '#D97706',
+                'info': '#7C3AED',
+                'dark-bg': '#0C1426',
+                'card-dark': '#1E293B',
+                'text-light': '#F1F5F9'
+            }
+        };
+
+        // Set your chosen palette here (change 'oceanBreeze' to your preferred option)
+        const chosenPalette = 'oceanBreeze';
+        const colors = colorPalettes[chosenPalette];
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': colors.primary,
+                        'electric-purple': colors.secondary,
+                        'hot-pink': colors.accent,
+                        'lime-green': colors.success,
+                        'sunset-orange': colors.warning,
+                        'deep-purple': colors.info,
+                        'dark-bg': colors['dark-bg'],
+                        'card-dark': colors['card-dark'],
+                        'text-light': colors['text-light']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-active { 
+            background: linear-gradient(135deg, #8B5CF6, #EC4899); 
+            color: white; 
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+        html { scroll-behavior: smooth; }
+        
+        /* Cool animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6), 0 0 40px rgba(236, 72, 153, 0.3); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes bubble-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
+            75% { transform: translateY(-20px) rotate(1deg); }
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .float-animation { animation: float 3s ease-in-out infinite; }
+        .glow-animation { animation: glow 2s ease-in-out infinite; }
+        .slide-in-left { animation: slideInLeft 0.8s ease-out; }
+        .slide-in-right { animation: slideInRight 0.8s ease-out; }
+        .fade-in-up { animation: fadeInUp 0.6s ease-out; }
+        .pulse-animation { animation: pulse 2s ease-in-out infinite; }
+        .bubble-float { animation: bubble-float 4s ease-in-out infinite; }
+        .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+        
+        .rainbow-text {
+            background: linear-gradient(-45deg, #00D4FF, #8B5CF6, #EC4899, #10B981, #F59E0B);
+            background-size: 400% 400%;
+            animation: rainbow 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #1E293B, #334155);
+            border-radius: 1rem;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00D4FF, #8B5CF6, #EC4899, #10B981);
+            border-radius: 1rem;
+            z-index: -1;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-dark-bg via-slate-900 to-gray-900 text-text-light font-sans min-h-screen">
+    <!-- Color Palette Selector -->
+    <div id="color-palette-selector" class="fixed top-20 right-6 z-40 bg-card-dark/95 backdrop-blur-md border border-electric-purple/30 rounded-2xl p-6 shadow-2xl transform translate-x-full transition-transform duration-300">
+        <div class="text-center mb-4">
+            <h3 class="text-xl font-bold text-neon-blue mb-2">Choose Your Color Palette</h3>
+            <p class="text-sm text-gray-300">Click any palette to instantly change the theme</p>
+        </div>
+        
+        <div class="space-y-3">
+            <!-- Ocean Breeze -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('oceanBreeze')" data-palette="oceanBreeze">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #00D4FF;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #8B5CF6;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #EC4899;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #10B981;"></div>
+                    </div>
+                    <span class="text-white font-medium">Ocean Breeze</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Vibrant blues and teals</p>
+            </div>
+            
+            <!-- Forest Zen -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('forestZen')" data-palette="forestZen">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #059669;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #0D9488;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #84CC16;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #22C55E;"></div>
+                    </div>
+                    <span class="text-white font-medium">Forest Zen</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Calming greens and earth tones</p>
+            </div>
+            
+            <!-- Sunset Warmth -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('sunsetWarmth')" data-palette="sunsetWarmth">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #F97316;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #EC4899;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #F59E0B;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #10B981;"></div>
+                    </div>
+                    <span class="text-white font-medium">Sunset Warmth</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Warm oranges and soft pinks</p>
+            </div>
+            
+            <!-- Lavender Dreams -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('lavenderDreams')" data-palette="lavenderDreams">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #A855F7;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #6366F1;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #EC4899;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #10B981;"></div>
+                    </div>
+                    <span class="text-white font-medium">Lavender Dreams</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Soft purples and blues</p>
+            </div>
+            
+            <!-- Rose Gold Elegance -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('roseGoldElegance')" data-palette="roseGoldElegance">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #E11D48;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #F59E0B;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #EC4899;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #10B981;"></div>
+                    </div>
+                    <span class="text-white font-medium">Rose Gold Elegance</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Sophisticated pinks and golds</p>
+            </div>
+            
+            <!-- Midnight Blue -->
+            <div class="palette-option cursor-pointer p-3 rounded-lg border border-transparent hover:border-white/20 transition-all duration-300" onclick="changePalette('midnightBlue')" data-palette="midnightBlue">
+                <div class="flex items-center space-x-3">
+                    <div class="flex space-x-1">
+                        <div class="w-4 h-4 rounded-full" style="background: #1E40AF;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #3730A3;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #0EA5E9;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background: #059669;"></div>
+                    </div>
+                    <span class="text-white font-medium">Midnight Blue</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1 ml-7">Professional deep blues</p>
+            </div>
+        </div>
+        
+        <div class="mt-4 pt-4 border-t border-gray-600">
+            <button onclick="togglePaletteSelector()" class="w-full text-sm text-gray-400 hover:text-white transition-colors">Close Palette Selector</button>
+        </div>
+    </div>
+
+    <!-- Palette Toggle Button -->
+    <button id="palette-toggle" onclick="togglePaletteSelector()" class="fixed top-24 right-6 z-50 bg-gradient-to-r from-electric-purple to-hot-pink hover:from-hot-pink hover:to-electric-purple text-white p-4 rounded-full shadow-2xl hover:shadow-electric-purple/50 transition-all duration-300 hover:scale-110 border-2 border-white/20 backdrop-blur-sm">
+        <span class="text-xl">🎨</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-dark-bg/95 backdrop-blur-md z-50 border-b border-electric-purple/30 shadow-2xl">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="editable-text text-3xl font-bold rainbow-text pulse-animation cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter your name">Saloni Verma</div>
+                <div class="flex space-x-6">
+                    <a href="#about" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">About Me</a>
+                    <a href="#ai-cyber" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">My work in AI</a>
+                    <a href="#leadership" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">Leadership Style</a>
+                    <a href="#career" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">Career Journey</a>
+                    <a href="#connect" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">Connect</a>
+                    <a href="#hobbies" class="nav-btn px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-electric-purple hover:to-hot-pink hover:text-white text-neon-blue hover:shadow-lg hover:shadow-electric-purple/50">Hobbies</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 min-h-screen">
+        <!-- About Me Section -->
+        <section id="about" class="py-16">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-neon-blue via-electric-purple to-hot-pink bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter section title">About Me & What I Do</div>
+                    <div class="w-32 h-1 bg-gradient-to-r from-neon-blue to-hot-pink mx-auto mb-8 glow-animation"></div>
+                </div>
+                <!-- About Me Description & AI Vision -->
+                <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
+                    <!-- Left Side: Photo & Description -->
+                    <div class="space-y-8 slide-in-left">
+                        <!-- Photo Upload Section -->
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="relative float-animation">
+                                <div id="profile-photo-container" class="w-48 h-48 bg-gradient-to-br from-electric-purple/30 to-neon-blue/30 border-4 border-electric-purple/50 rounded-full flex items-center justify-center overflow-hidden shadow-2xl glow-animation">
+                                    <img id="profile-photo" src="" alt="Profile Photo" class="w-full h-full object-cover hidden">
+                                    <div id="profile-placeholder" class="text-center">
+                                        <div class="text-4xl text-neon-blue mb-2">📷</div>
+                                        <p class="text-sm text-gray-300 px-4">Click the + button to upload your photo</p>
+                                        <p class="text-xs text-gray-400 mt-2 px-2">Supports JPG, PNG, GIF files</p>
+                                    </div>
+                                </div>
+                                <button onclick="document.getElementById('profile-upload').click()" class="absolute bottom-2 right-2 bg-gradient-to-r from-electric-purple to-hot-pink text-white p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-electric-purple/50 pulse-animation">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
+                            <!--<div class="text-center space-y-2">
+                                <button onclick="removeProfilePhoto()" class="text-sm text-neon-blue hover:text-hot-pink transition-colors duration-300 hover:scale-105 block">Remove Photo</button>
+                                <div class="text-xs text-gray-400">
+                                    <p>💡 <strong>Pro Tip:</strong> For best results, use a square photo (1:1 ratio)</p>
+                                    <p>📱 You can also drag & drop your photo onto the circle!</p>
+                                </div>
+                            </div>-->
+                        </div>
+                        
+                        <!-- About Text Section -->
+                        <div class="space-y-6">
+                            <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your first paragraph">I'm a passionate leader with over 9 years of experience in scaling offensive security functions and building efficient teams. I currently lead a DAST and Pentesting team at TII grown from a solo role into a global functional team. We as a team deliver impactful findings, ensuring Target's external exposed surface is safe from threat actors.</div>
+                            <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your second paragraph">My expertise lies in Penetration testing (API and Web), strategic planning, team development, and fostering collaborative environments. I'm currently exploring the AI space in offensive security and trying to build my own agents to enhance existing Cyber functionalities. My approach combines data-driven decision making with human-centered leadership based on metrics.
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <div class="editable-text bg-gradient-to-r from-electric-purple to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-electric-purple/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 1">Strategy</div>
+                                <div class="editable-text bg-gradient-to-r from-hot-pink to-sunset-orange text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-hot-pink/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 2">Leadership</div>
+                                <div class="editable-text bg-gradient-to-r from-lime-green to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-lime-green/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 3">Collaboration</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: AI Vision -->
+                    <div class="slide-in-right">
+                        <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-3xl border border-lime-green/30 shadow-2xl hover:shadow-lime-green/20 transition-all duration-300 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-lime-green/5 via-transparent to-neon-blue/5"></div>
+                            <div class="relative z-10">
+                                <div class="text-center mb-6">
+                                    <div class="editable-text text-3xl font-bold bg-gradient-to-r from-lime-green to-neon-blue bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter vision title">My AI Vision for Cybersecurity</div>
+                                    <div class="w-20 h-1 bg-gradient-to-r from-lime-green to-neon-blue mx-auto rounded-full glow-animation"></div>
+                                </div>
+                                
+                                <div class="space-y-4 mb-6">
+                                    <div class="editable-text text-base leading-relaxed text-gray-300 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI vision">The future of cybersecurity lies in intelligent automation. I'm building AI agents that don't replace human expertise but amplify it.</div>
+                                    
+                                    <div class="editable-text text-base leading-relaxed text-gray-300 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI approach">My approach focuses on practical AI implementations that solve real security challenges: reducing alert fatigue, accelerating threat response, and enabling proactive strategies that will allow teams to focus on strategic security rather than repetitive tasks.</div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <div class="editable-text bg-gradient-to-r from-lime-green/20 to-neon-blue/20 border border-lime-green/30 text-lime-green px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-lime-green/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Intelligent Automation</div>
+                                    <div class="editable-text bg-gradient-to-r from-neon-blue/20 to-electric-purple/20 border border-neon-blue/30 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Training</div>
+                                    <div class="editable-text bg-gradient-to-r from-neon-blue/20 to-electric-purple/20 border border-neon-blue/30 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Agentic AI</div>
+                                    <div class="editable-text bg-gradient-to-r from-electric-purple/20 to-hot-pink/20 border border-electric-purple/30 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Human-AI Collaboration</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Achievements Section -->
+                <div class="fade-in-up">
+                    <div class="gradient-border p-8 max-w-5xl mx-auto hover-lift">
+                        <div class="editable-text text-4xl font-bold bg-gradient-to-r from-neon-blue to-electric-purple bg-clip-text text-transparent mb-8 text-center pulse-animation cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter achievements title">Key Achievements</div>
+                        <div class="space-y-4">
+                            <!-- Achievement 1 -->
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-1" class="text-neon-blue mr-3 transition-transform duration-300 text-lg">▶</span>
+                                        <input type="text" id="achievement-title-1" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1 text-lg" value="Improved DAST scan health from 40% to 85% in 2025" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(1)">Edit</button>
+                                </div>
+                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-1" class="w-full p-4 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="4" placeholder="Add detailed description of this achievement...">Led a comprehensive overhaul of our DAST scanning infrastructure, implementing intelligent filtering algorithms and custom rule sets. This initiative involved coordinating with multiple security teams, analyzing thousands of scan results, and developing automated triage processes. The improvement significantly reduced false positives and enhanced our ability to identify genuine security vulnerabilities.</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 2 -->
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(2)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-2" class="text-neon-blue mr-3 transition-transform duration-300 text-lg">▶</span>
+                                        <input type="text" id="achievement-title-2" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1 text-lg" value="Reduced noise in DAST findings from ~4000 to ~60 for customer teams at Target" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(2)">Edit</button>
+                                </div>
+                                <div id="achievement-content-2" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-2" class="w-full p-4 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="4" placeholder="Add detailed description of this achievement...">Revolutionized our vulnerability management process by implementing advanced filtering mechanisms and contextual analysis. This massive reduction in noise allowed development teams to focus on genuine security issues rather than wading through false positives. The initiative involved machine learning algorithms, custom rule development, and extensive collaboration with engineering teams to understand their specific contexts and requirements.</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 3 -->
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(3)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-3" class="text-neon-blue mr-3 transition-transform duration-300 text-lg">▶</span>
+                                        <input type="text" id="achievement-title-3" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1 text-lg" value="Integrated Bug Bounty into DAST ensuring 50% finding boost, 20% better end point coverage" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(3)">Edit</button>
+                                </div>
+                                <div id="achievement-content-3" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-3" class="w-full p-4 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="4" placeholder="Add detailed description of this achievement...">Pioneered the integration of bug bounty intelligence into our automated scanning processes, creating a feedback loop that continuously improves our security testing coverage. This innovative approach combines crowdsourced security research with automated tools, resulting in more comprehensive vulnerability detection and better endpoint coverage across our applications.</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 4 -->
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(4)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-4" class="text-neon-blue mr-3 transition-transform duration-300 text-lg">▶</span>
+                                        <input type="text" id="achievement-title-4" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1 text-lg" value="Leading SW@TI - a women in tech group which aims to provide support, visibility, opportunities and exposure to women in tech" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(4)">Edit</button>
+                                </div>
+                                <div id="achievement-content-4" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-4" class="w-full p-4 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="4" placeholder="Add detailed description of this achievement...">Founded and currently lead SW@TI (Software Women at Target India), a thriving community of 200+ women in technology. The group focuses on career development, technical skill building, and creating opportunities for women to advance in tech roles. We organize monthly workshops, mentorship programs, and networking events that have directly contributed to increased retention and promotion rates among women in our technology organization.</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Add New Achievement Button -->
+                            <div class="text-center pt-6">
+                                <button onclick="addNewAchievement()" class="bg-gradient-to-r from-lime-green to-neon-blue text-white px-8 py-3 rounded-lg hover:scale-105 transition-all duration-300 font-semibold shadow-lg hover:shadow-lime-green/50 glow-animation text-lg">+ Add New Achievement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI in Cybersecurity Section -->
+        <section id="ai-cyber" class="py-16 bg-gradient-to-br from-slate-900 via-purple-900/20 to-indigo-900/30 relative overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-neon-blue/10 to-electric-purple/10 rounded-full blur-xl animate-spin-slow"></div>
+                <div class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-hot-pink/10 to-sunset-orange/10 rounded-full blur-2xl animate-pulse"></div>
+                <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-lime-green/10 to-neon-blue/10 rounded-full blur-lg bubble-float"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 fade-in-up">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-neon-blue via-electric-purple to-hot-pink bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter AI section title">AI in Cybersecurity</div>
+                    <div class="w-32 h-2 bg-gradient-to-r from-neon-blue via-electric-purple to-hot-pink mx-auto mb-8 rounded-full glow-animation"></div>
+                    <div class="editable-text text-2xl text-gray-300 cursor-pointer text-center p-3 rounded-lg hover:bg-gray-800/20 transition-colors backdrop-blur-sm" onclick="makeEditable(this)" data-placeholder="Enter AI subtitle">Pioneering the future of offensive security with artificial intelligence</div>
+                </div>
+
+                <!-- AI Projects Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- AI Agent 1 -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-neon-blue/30 shadow-2xl hover:shadow-neon-blue/20 transition-all duration-300 hover-lift relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-neon-blue/20 to-electric-purple/20 rounded-full blur-xl"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl mb-6 text-center">🤖</div>
+                            <div class="editable-text text-2xl font-bold text-neon-blue mb-4 text-center cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter AI project title">DAST Intelligence Agent</div>
+                            <div class="editable-text text-gray-300 leading-relaxed mb-6 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this AI project">An AI-powered agent that automatically analyzes DAST scan results, reduces false positives by 85%, and provides intelligent vulnerability prioritization based on business context and threat landscape.</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">Machine Learning</span>
+                                <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">Python</span>
+                                <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">TensorFlow</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="editable-text text-3xl font-bold text-neon-blue cursor-pointer" onclick="makeEditable(this)" data-placeholder="Impact metric">85% Noise Reduction</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Agent 2 -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-electric-purple/30 shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 hover-lift relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-electric-purple/20 to-hot-pink/20 rounded-full blur-xl"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl mb-6 text-center">🧠</div>
+                            <div class="editable-text text-2xl font-bold text-electric-purple mb-4 text-center cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter AI project title">Threat Intelligence Bot</div>
+                            <div class="editable-text text-gray-300 leading-relaxed mb-6 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this AI project">Automated threat intelligence gathering and correlation system that monitors dark web, CVE databases, and security feeds to provide real-time threat context for our security assessments.</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">NLP</span>
+                                <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">APIs</span>
+                                <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">Real-time</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="editable-text text-3xl font-bold text-electric-purple cursor-pointer" onclick="makeEditable(this)" data-placeholder="Impact metric">24/7 Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Agent 3 -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-hot-pink/30 shadow-2xl hover:shadow-hot-pink/20 transition-all duration-300 hover-lift relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-hot-pink/20 to-sunset-orange/20 rounded-full blur-xl"></div>
+                        <div class="relative z-10">
+                            <div class="text-5xl mb-6 text-center">⚡</div>
+                            <div class="editable-text text-2xl font-bold text-hot-pink mb-4 text-center cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter AI project title">Automated Pentest Assistant</div>
+                            <div class="editable-text text-gray-300 leading-relaxed mb-6 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this AI project">AI assistant that helps penetration testers by automatically generating test cases, suggesting attack vectors based on reconnaissance data, and creating detailed reports with remediation recommendations.</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">GPT Integration</span>
+                                <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">Automation</span>
+                                <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Tech">Reporting</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="editable-text text-3xl font-bold text-hot-pink cursor-pointer" onclick="makeEditable(this)" data-placeholder="Impact metric">50% Time Saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Vision & Future -->
+                <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-12 rounded-3xl border border-lime-green/30 shadow-2xl hover:shadow-lime-green/20 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-lime-green/5 via-transparent to-neon-blue/5"></div>
+                    <div class="relative z-10">
+                        <div class="text-center mb-8">
+                            <div class="editable-text text-4xl font-bold bg-gradient-to-r from-lime-green to-neon-blue bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter vision title">My AI Vision for Cybersecurity</div>
+                            <div class="w-24 h-1 bg-gradient-to-r from-lime-green to-neon-blue mx-auto rounded-full glow-animation"></div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div class="space-y-6">
+                                <div class="editable-text text-lg leading-relaxed text-gray-300 cursor-pointer p-4 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI vision">The future of cybersecurity lies in intelligent automation. I'm building AI agents that don't replace human expertise but amplify it - turning our security teams into cyber-enhanced defenders who can operate at machine speed with human intuition.</div>
+                                
+                                <div class="editable-text text-lg leading-relaxed text-gray-300 cursor-pointer p-4 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI approach">My approach focuses on practical AI implementations that solve real security challenges: reducing alert fatigue, accelerating threat response, and enabling proactive defense strategies through predictive analytics.</div>
+                                
+                                <div class="flex flex-wrap gap-3 pt-4">
+                                    <div class="editable-text bg-gradient-to-r from-lime-green/20 to-neon-blue/20 border border-lime-green/30 text-lime-green px-4 py-2 rounded-full font-semibold cursor-pointer hover:bg-lime-green/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Intelligent Automation</div>
+                                    <div class="editable-text bg-gradient-to-r from-neon-blue/20 to-electric-purple/20 border border-neon-blue/30 text-neon-blue px-4 py-2 rounded-full font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Predictive Analytics</div>
+                                    <div class="editable-text bg-gradient-to-r from-electric-purple/20 to-hot-pink/20 border border-electric-purple/30 text-electric-purple px-4 py-2 rounded-full font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="AI focus area">Human-AI Collaboration</div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Research & Learning -->
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-neon-blue/10 to-electric-purple/10 border border-neon-blue/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-neon-blue/20">
+                        <div class="text-4xl text-neon-blue mb-4">📚</div>
+                        <div class="editable-text text-xl font-bold text-neon-blue mb-3 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Research area">Current Learning</div>
+                        <div class="editable-text text-sm text-gray-300 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Learning details">Advanced ML for Security, LLM Fine-tuning, Adversarial AI Defense</div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-electric-purple/10 to-hot-pink/10 border border-electric-purple/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-electric-purple/20">
+                        <div class="text-4xl text-electric-purple mb-4">🔬</div>
+                        <div class="editable-text text-xl font-bold text-electric-purple mb-3 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Research area">Active Research</div>
+                        <div class="editable-text text-sm text-gray-300 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Research details">AI-powered vulnerability discovery, Automated exploit generation, Smart fuzzing techniques</div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-hot-pink/10 to-sunset-orange/10 border border-hot-pink/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-hot-pink/20">
+                        <div class="text-4xl text-hot-pink mb-4">🎯</div>
+                        <div class="editable-text text-xl font-bold text-hot-pink mb-3 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Research area">Future Goals</div>
+                        <div class="editable-text text-sm text-gray-300 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Future goals">Autonomous security agents, AI-driven threat hunting, Predictive breach prevention</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Style Section -->
+        <section id="leadership" class="py-16 bg-gradient-to-r from-card-dark/30 to-dark-bg/50">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-hot-pink via-sunset-orange to-lime-green bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter leadership section title">My Leadership Style</div>
+                    <div class="w-32 h-1 bg-gradient-to-r from-hot-pink to-lime-green mx-auto mb-8 glow-animation"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 hover-lift float-animation shadow-lg">
+                        <div class="text-5xl text-blue-600 mb-4 pulse-animation">🎯</div>
+                        <div class="editable-text text-2xl font-bold text-black mb-4 cursor-pointer text-center hover:bg-blue-100 rounded px-2 py-1" onclick="makeEditable(this)" data-placeholder="Leadership trait">Visionary</div>
+                        <div class="editable-text text-black cursor-pointer rounded-lg p-3 hover:bg-blue-50 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this leadership trait">I believe in setting clear, inspiring goals that align with both individual aspirations and organizational objectives. Every team member understands how their work contributes to the bigger picture.</div>
+                    </div>
+                    <div class="bg-green-50 border border-green-200 rounded-2xl p-8 hover-lift float-animation shadow-lg" style="animation-delay: 0.5s;">
+                        <div class="text-5xl text-green-600 mb-4 pulse-animation">🤝</div>
+                        <div class="editable-text text-2xl font-bold text-black mb-4 cursor-pointer text-center hover:bg-green-100 rounded px-2 py-1" onclick="makeEditable(this)" data-placeholder="Leadership trait">Collaborative</div>
+                        <div class="editable-text text-black cursor-pointer rounded-lg p-3 hover:bg-green-50 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this leadership trait">I foster an environment where every voice is heard and valued. The best solutions emerge when diverse perspectives come together in a supportive, inclusive atmosphere.</div>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-8 hover-lift float-animation shadow-lg" style="animation-delay: 1s;">
+                        <div class="text-5xl text-amber-600 mb-4 pulse-animation">📈</div>
+                        <div class="editable-text text-2xl font-bold text-black mb-4 cursor-pointer text-center hover:bg-amber-100 rounded px-2 py-1" onclick="makeEditable(this)" data-placeholder="Leadership trait">Growth-Oriented</div>
+                        <div class="editable-text text-black cursor-pointer rounded-lg p-3 hover:bg-amber-50 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this leadership trait">I'm committed to continuous learning and development, both for myself and my team. I provide opportunities for skill building and career advancement at every level.</div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center fade-in-up">
+                    <div class="editable-text text-3xl italic bg-gradient-to-r from-electric-purple to-hot-pink bg-clip-text text-transparent max-w-3xl mx-auto text-shadow cursor-pointer text-center p-4 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your leadership quote">"Great leaders don't create followers, they create more leaders. My role is to empower others to reach their full potential."</div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- Career Journey Section -->
+        <section id="career" class="py-16 bg-gradient-to-br from-gray-900 via-slate-800 to-dark-bg">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-lime-green via-neon-blue to-electric-purple bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter career section title">All About My Work Since 2016</div>
+                    <div class="w-32 h-2 bg-gradient-to-r from-lime-green via-neon-blue to-electric-purple mx-auto mb-8 rounded-full glow-animation"></div>
+                    <div class="editable-text text-2xl text-gray-300 cursor-pointer text-center p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter career subtitle">My professional journey and growth over the years</div>
+                </div>
+
+                <!-- Career Timeline -->
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-lime-green via-neon-blue to-electric-purple rounded-full shadow-lg shadow-neon-blue/30"></div>
+                    
+                    <!-- Career Stage 1: Engineer (2016-2018) -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-lime-green/30 shadow-2xl hover:shadow-lime-green/20 transition-all duration-300 hover-lift">
+                                <div class="flex items-center justify-end mb-4">
+                                    <div class="text-right mr-4">
+                                        <div class="editable-text text-3xl font-bold text-lime-green cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter position title">Software Engineer</div>
+                                        <div class="editable-text text-lg text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter time period">2016 - 2018</div>
+                                    </div>
+                                    <div class="w-16 h-16 bg-gradient-to-br from-lime-green to-emerald-500 rounded-full flex items-center justify-center text-2xl shadow-lg">💻</div>
+                                </div>
+                                <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe your work as an Engineer">Started my journey as a fresh graduate, diving deep into full-stack development. Worked on building scalable web applications using React, Node.js, and PostgreSQL. Collaborated with senior developers to learn best practices and contributed to 5+ major product features. Gained expertise in agile methodologies and version control systems.</div>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="editable-text bg-lime-green/20 text-lime-green px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-lime-green/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">JavaScript</span>
+                                    <span class="editable-text bg-lime-green/20 text-lime-green px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-lime-green/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">React</span>
+                                    <span class="editable-text bg-lime-green/20 text-lime-green px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-lime-green/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Node.js</span>
+                                    <button onclick="addSkillTag(this, 'lime-green')" class="bg-lime-green/10 text-lime-green px-3 py-1 rounded-full text-sm font-semibold hover:bg-lime-green/20 transition-colors border border-lime-green/30">+ Add Skill</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-lime-green rounded-full border-4 border-dark-bg shadow-lg shadow-lime-green/50"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Career Stage 2: Senior Engineer (2018-2020) -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neon-blue rounded-full border-4 border-dark-bg shadow-lg shadow-neon-blue/50"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-neon-blue/30 shadow-2xl hover:shadow-neon-blue/20 transition-all duration-300 hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-neon-blue to-blue-500 rounded-full flex items-center justify-center text-2xl shadow-lg mr-4">🚀</div>
+                                    <div>
+                                        <div class="editable-text text-3xl font-bold text-neon-blue cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter position title">Senior Software Engineer</div>
+                                        <div class="editable-text text-lg text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter time period">2018 - 2020</div>
+                                    </div>
+                                </div>
+                                <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe your work as a Senior Engineer">Promoted to Senior Engineer after demonstrating strong technical skills and leadership potential. Led the architecture design for 3 major system components and mentored 4 junior developers. Introduced automated testing practices that reduced bugs by 60%. Collaborated with product managers to translate business requirements into technical solutions.</div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">System Design</span>
+                                    <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Mentoring</span>
+                                    <span class="editable-text bg-neon-blue/20 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-neon-blue/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Testing</span>
+                                    <button onclick="addSkillTag(this, 'neon-blue')" class="bg-neon-blue/10 text-neon-blue px-3 py-1 rounded-full text-sm font-semibold hover:bg-neon-blue/20 transition-colors border border-neon-blue/30">+ Add Skill</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Career Stage 3: Lead Engineer (2020-2022) -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-electric-purple/30 shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 hover-lift">
+                                <div class="flex items-center justify-end mb-4">
+                                    <div class="text-right mr-4">
+                                        <div class="editable-text text-3xl font-bold text-electric-purple cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter position title">Lead Engineer</div>
+                                        <div class="editable-text text-lg text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter time period">2020 - 2022</div>
+                                    </div>
+                                    <div class="w-16 h-16 bg-gradient-to-br from-electric-purple to-purple-600 rounded-full flex items-center justify-center text-2xl shadow-lg">⭐</div>
+                                </div>
+                                <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe your work as a Lead Engineer">Stepped into technical leadership role, overseeing a team of 8 engineers across multiple projects. Established coding standards and review processes that improved code quality by 45%. Led the migration to microservices architecture, resulting in 30% better system performance. Became the go-to person for complex technical decisions and cross-team collaboration.</div>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Team Leadership</span>
+                                    <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Architecture</span>
+                                    <span class="editable-text bg-electric-purple/20 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-electric-purple/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Microservices</span>
+                                    <button onclick="addSkillTag(this, 'electric-purple')" class="bg-electric-purple/10 text-electric-purple px-3 py-1 rounded-full text-sm font-semibold hover:bg-electric-purple/20 transition-colors border border-electric-purple/30">+ Add Skill</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-electric-purple rounded-full border-4 border-dark-bg shadow-lg shadow-electric-purple/50"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Career Stage 4: Manager (2022-Present) -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-hot-pink to-sunset-orange rounded-full border-4 border-dark-bg shadow-lg shadow-hot-pink/50 pulse-animation"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-hot-pink/30 shadow-2xl hover:shadow-hot-pink/20 transition-all duration-300 hover-lift glow-animation">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-hot-pink to-sunset-orange rounded-full flex items-center justify-center text-2xl shadow-lg mr-4">👑</div>
+                                    <div>
+                                        <div class="editable-text text-3xl font-bold text-hot-pink cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter position title">Engineering Manager</div>
+                                        <div class="editable-text text-lg text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter time period">2022 - Present</div>
+                                    </div>
+                                </div>
+                                <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe your work as a Manager">Transitioned into people management while maintaining technical oversight. Currently leading a diverse team of 15+ engineers across multiple product lines. Implemented OKR framework that aligned team goals with business objectives. Focused on career development, resulting in 3 team members getting promoted. Driving strategic initiatives that have increased team productivity by 40% and reduced time-to-market by 25%.</div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">People Management</span>
+                                    <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Strategy</span>
+                                    <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">OKRs</span>
+                                    <span class="editable-text bg-hot-pink/20 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-hot-pink/30 transition-colors" onclick="makeEditable(this)" data-placeholder="Skill">Growth</span>
+                                    <button onclick="addSkillTag(this, 'hot-pink')" class="bg-hot-pink/10 text-hot-pink px-3 py-1 rounded-full text-sm font-semibold hover:bg-hot-pink/20 transition-colors border border-hot-pink/30">+ Add Skill</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Milestones -->
+                <div class="mt-20">
+                    <div class="text-center mb-12">
+                        <div class="editable-text text-4xl font-bold bg-gradient-to-r from-sunset-orange to-hot-pink bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter milestones title">Key Career Milestones</div>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-gradient-to-br from-lime-green/10 to-emerald-500/10 border border-lime-green/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-lime-green/20">
+                            <div class="text-4xl text-lime-green mb-3">🎓</div>
+                            <div class="editable-text text-2xl font-bold text-lime-green mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter milestone">First Promotion</div>
+                            <div class="editable-text text-sm text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter year">2018</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-neon-blue/10 to-blue-500/10 border border-neon-blue/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-neon-blue/20">
+                            <div class="text-4xl text-neon-blue mb-3">🏆</div>
+                            <div class="editable-text text-2xl font-bold text-neon-blue mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter milestone">Technical Leadership</div>
+                            <div class="editable-text text-sm text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter year">2020</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-electric-purple/10 to-purple-600/10 border border-electric-purple/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-electric-purple/20">
+                            <div class="text-4xl text-electric-purple mb-3">🚀</div>
+                            <div class="editable-text text-2xl font-bold text-electric-purple mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter milestone">Lead Engineer</div>
+                            <div class="editable-text text-sm text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter year">2020</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-hot-pink/10 to-sunset-orange/10 border border-hot-pink/30 p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-hot-pink/20">
+                            <div class="text-4xl text-hot-pink mb-3">👑</div>
+                            <div class="editable-text text-2xl font-bold text-hot-pink mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter milestone">Management Role</div>
+                            <div class="editable-text text-sm text-gray-400 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter year">2022</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Me Description -->
+                <div class="grid md:grid-cols-3 gap-12 items-center mt-12">
+                    <!-- Photo Upload Section -->
+                    <div class="flex flex-col items-center space-y-4 slide-in-left">
+                        <div class="relative float-animation">
+                            <div id="profile-photo-container" class="w-48 h-48 bg-gradient-to-br from-electric-purple/30 to-neon-blue/30 border-4 border-electric-purple/50 rounded-full flex items-center justify-center overflow-hidden shadow-2xl glow-animation">
+                                <img id="profile-photo" src="" alt="Profile Photo" class="w-full h-full object-cover hidden">
+                                <div id="profile-placeholder" class="text-center">
+                                    <div class="text-4xl text-neon-blue mb-2">📷</div>
+                                    <p class="text-sm text-gray-300">Upload Your Photo</p>
+                                </div>
+                            </div>
+                            <button onclick="document.getElementById('profile-upload').click()" class="absolute bottom-2 right-2 bg-gradient-to-r from-electric-purple to-hot-pink text-white p-2 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-electric-purple/50">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
+                        <button onclick="removeProfilePhoto()" class="text-sm text-neon-blue hover:text-hot-pink transition-colors duration-300 hover:scale-105">Remove Photo</button>
+                    </div>
+                    
+                    <!-- About Text Section -->
+                    <div class="md:col-span-2 space-y-6 slide-in-right">
+                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your first paragraph">I'm a passionate leader with over 9 years of experience in scaling offensive security functions and building efficient teams. I currently lead a DAST and Pentesting team at TII grown from a solo role into a global functional team. We as a team deliver impactful findings, ensuring Target's external exposed surface is safe from threat actors.</div>
+                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors mt-6" onclick="makeEditable(this)" data-placeholder="Enter your second paragraph">My expertise lies in Penetration testing (API and Web), strategic planning, team development, and fostering collaborative environments. I'm currently exploring the AI space in offensive security and trying to build my own agents to enhance existing Cyber functionalities. My approach combines data-driven decision making with human-centered leadership based on metrics.</div>
+                        <div class="flex space-x-4 pt-4">
+                            <div class="editable-text bg-gradient-to-r from-electric-purple to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-electric-purple/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 1">Strategy</div>
+                            <div class="editable-text bg-gradient-to-r from-hot-pink to-sunset-orange text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-hot-pink/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 2">Leadership</div>
+                            <div class="editable-text bg-gradient-to-r from-lime-green to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-lime-green/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 3">Innovation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="py-16 bg-gradient-to-br from-card-dark/30 to-slate-800/20">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-neon-blue via-electric-purple to-hot-pink bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter connect section title">Connect With Me</div>
+                    <div class="w-32 h-2 bg-gradient-to-r from-neon-blue via-electric-purple to-hot-pink mx-auto mb-8 rounded-full glow-animation"></div>
+                    <div class="editable-text text-2xl text-gray-300 cursor-pointer text-center p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter connect subtitle">Let's start a conversation about opportunities and collaboration</div>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div class="editable-text text-3xl font-bold bg-gradient-to-r from-electric-purple to-neon-blue bg-clip-text text-transparent mb-8 text-center cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter section heading">Get In Touch</div>
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-6 rounded-2xl border border-neon-blue/30 shadow-2xl hover:shadow-neon-blue/20 transition-all duration-300 hover-lift">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-neon-blue to-electric-purple rounded-full flex items-center justify-center text-3xl shadow-lg glow-animation">📧</div>
+                                <div class="flex-1">
+                                    <div class="editable-text text-2xl font-bold text-neon-blue mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter contact method">Email</div>
+                                    <div class="editable-text text-gray-300 text-lg cursor-pointer hover:bg-gray-800/20 rounded px-2 py-1 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter email address">your.email@example.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-6 rounded-2xl border border-electric-purple/30 shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 hover-lift">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-electric-purple to-hot-pink rounded-full flex items-center justify-center text-3xl shadow-lg glow-animation">💼</div>
+                                <div class="flex-1">
+                                    <div class="editable-text text-2xl font-bold text-electric-purple mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter contact method">LinkedIn</div>
+                                    <div class="editable-text text-gray-300 text-lg cursor-pointer hover:bg-gray-800/20 rounded px-2 py-1 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter LinkedIn description">Connect professionally</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-6 rounded-2xl border border-hot-pink/30 shadow-2xl hover:shadow-hot-pink/20 transition-all duration-300 hover-lift">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-hot-pink to-sunset-orange rounded-full flex items-center justify-center text-3xl shadow-lg glow-animation">💬</div>
+                                <div class="flex-1">
+                                    <div class="editable-text text-2xl font-bold text-hot-pink mb-2 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter contact method">Slack</div>
+                                    <div class="editable-text text-gray-300 text-lg cursor-pointer hover:bg-gray-800/20 rounded px-2 py-1 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter Slack description">Message me for quick chats</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Me Description -->
+                <div class="grid md:grid-cols-3 gap-12 items-center mt-12">
+                    <!-- Photo Upload Section -->
+                    <div class="flex flex-col items-center space-y-4 slide-in-left">
+                        <div class="relative float-animation">
+                            <div id="profile-photo-container" class="w-48 h-48 bg-gradient-to-br from-electric-purple/30 to-neon-blue/30 border-4 border-electric-purple/50 rounded-full flex items-center justify-center overflow-hidden shadow-2xl glow-animation">
+                                <img id="profile-photo" src="" alt="Profile Photo" class="w-full h-full object-cover hidden">
+                                <div id="profile-placeholder" class="text-center">
+                                    <div class="text-4xl text-neon-blue mb-2">📷</div>
+                                    <p class="text-sm text-gray-300">Upload Your Photo</p>
+                                </div>
+                            </div>
+                            <button onclick="document.getElementById('profile-upload').click()" class="absolute bottom-2 right-2 bg-gradient-to-r from-electric-purple to-hot-pink text-white p-2 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-electric-purple/50">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
+                        <button onclick="removeProfilePhoto()" class="text-sm text-neon-blue hover:text-hot-pink transition-colors duration-300 hover:scale-105">Remove Photo</button>
+                    </div>
+                    
+                    <!-- About Text Section -->
+                    <div class="md:col-span-2 space-y-6 slide-in-right">
+                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your first paragraph">I'm a passionate leader with over 9 years of experience in scaling offensive security functions and building efficient teams. I currently lead a DAST and Pentesting team at TII grown from a solo role into a global functional team. We as a team deliver impactful findings, ensuring Target's external exposed surface is safe from threat actors.</div>
+                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors mt-6" onclick="makeEditable(this)" data-placeholder="Enter your second paragraph">My expertise lies in Penetration testing (API and Web), strategic planning, team development, and fostering collaborative environments. I'm currently exploring the AI space in offensive security and trying to build my own agents to enhance existing Cyber functionalities. My approach combines data-driven decision making with human-centered leadership based on metrics.</div>
+                        <div class="flex space-x-4 pt-4">
+                            <div class="editable-text bg-gradient-to-r from-electric-purple to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-electric-purple/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 1">Strategy</div>
+                            <div class="editable-text bg-gradient-to-r from-hot-pink to-sunset-orange text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-hot-pink/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 2">Leadership</div>
+                            <div class="editable-text bg-gradient-to-r from-lime-green to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-lime-green/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 3">Innovation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="py-16 bg-gradient-to-br from-card-dark/40 to-slate-800/30">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <div class="editable-text text-6xl font-bold bg-gradient-to-r from-sunset-orange via-hot-pink to-electric-purple bg-clip-text text-transparent mb-6 text-shadow cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Enter hobbies section title">My Hobbies</div>
+                    <div class="w-32 h-2 bg-gradient-to-r from-sunset-orange via-hot-pink to-electric-purple mx-auto mb-8 rounded-full glow-animation"></div>
+                    <div class="editable-text text-2xl text-gray-300 cursor-pointer text-center p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter hobbies subtitle">What I love doing outside of work</div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Art and Doodling -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-electric-purple/30 shadow-2xl hover:shadow-electric-purple/20 transition-all duration-300 hover-lift text-center">
+                        <div class="editable-text text-6xl mb-6 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter emoji">🎨</div>
+                        <div class="editable-text text-2xl font-bold bg-gradient-to-r from-electric-purple to-neon-blue bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter hobby title">Art and Doodling</div>
+                        <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this hobby">Creative expression through sketching, digital art, and spontaneous doodling. I find it therapeutic and it helps me think through complex problems in a visual way.</div>
+                    </div>
+                    
+                    <!-- Fitness -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-lime-green/30 shadow-2xl hover:shadow-lime-green/20 transition-all duration-300 hover-lift text-center">
+                        <div class="editable-text text-6xl mb-6 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter emoji">💪</div>
+                        <div class="editable-text text-2xl font-bold bg-gradient-to-r from-lime-green to-emerald-500 bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter hobby title">Fitness</div>
+                        <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this hobby">Regular gym sessions, running, and yoga keep me energized and focused. Physical fitness directly impacts my mental clarity and leadership performance.</div>
+                    </div>
+                    
+                    <!-- Reading -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-hot-pink/30 shadow-2xl hover:shadow-hot-pink/20 transition-all duration-300 hover-lift text-center">
+                        <div class="editable-text text-6xl mb-6 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter emoji">📚</div>
+                        <div class="editable-text text-2xl font-bold bg-gradient-to-r from-hot-pink to-sunset-orange bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter hobby title">Reading</div>
+                        <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this hobby">I love diving into leadership books, sci-fi novels, and industry publications. Currently reading "Atomic Habits" and exploring new perspectives on team management.</div>
+                    </div>
+                    
+                    <!-- Travel -->
+                    <div class="bg-gradient-to-br from-card-dark/90 to-slate-800/80 p-8 rounded-2xl border border-neon-blue/30 shadow-2xl hover:shadow-neon-blue/20 transition-all duration-300 hover-lift text-center">
+                        <div class="editable-text text-6xl mb-6 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter emoji">✈️</div>
+                        <div class="editable-text text-2xl font-bold bg-gradient-to-r from-neon-blue to-electric-purple bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter hobby title">Travel</div>
+                        <div class="editable-text text-gray-300 leading-relaxed cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Describe this hobby">Adventure seeker who has visited 25+ countries. Love experiencing different cultures, trying local foods, and collecting stories from around the world.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! This is a demo form, so your message won\'t actually be sent. In a real implementation, this would connect to a backend service.');
+        }
+
+        // Profile photo upload functionality
+        function handleProfilePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                loadProfilePhoto(file);
+            }
+        }
+
+        function loadProfilePhoto(file) {
+            // Validate file type
+            if (!file.type.startsWith('image/')) {
+                alert('Please select a valid image file (JPG, PNG, GIF)');
+                return;
+            }
+
+            // Validate file size (max 5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Please select an image smaller than 5MB');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const profilePhoto = document.getElementById('profile-photo');
+                const profilePlaceholder = document.getElementById('profile-placeholder');
+                
+                profilePhoto.src = e.target.result;
+                profilePhoto.classList.remove('hidden');
+                profilePlaceholder.classList.add('hidden');
+                
+                // Add success feedback
+                const container = document.getElementById('profile-photo-container');
+                container.style.borderColor = '#10B981';
+                setTimeout(() => {
+                    container.style.borderColor = '';
+                }, 2000);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Add drag and drop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoContainer = document.getElementById('profile-photo-container');
+            
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                photoContainer.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            // Highlight drop area when item is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                photoContainer.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                photoContainer.addEventListener(eventName, unhighlight, false);
+            });
+
+            // Handle dropped files
+            photoContainer.addEventListener('drop', handleDrop, false);
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function highlight(e) {
+                photoContainer.style.borderColor = '#10B981';
+                photoContainer.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+            }
+
+            function unhighlight(e) {
+                photoContainer.style.borderColor = '';
+                photoContainer.style.backgroundColor = '';
+            }
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+
+                if (files.length > 0) {
+                    loadProfilePhoto(files[0]);
+                }
+            }
+        });
+
+        function removeProfilePhoto() {
+            const profilePhoto = document.getElementById('profile-photo');
+            const profilePlaceholder = document.getElementById('profile-placeholder');
+            const profileUpload = document.getElementById('profile-upload');
+            
+            profilePhoto.src = '';
+            profilePhoto.classList.add('hidden');
+            profilePlaceholder.classList.remove('hidden');
+            profileUpload.value = '';
+        }
+
+        // Team photo upload functionality
+        function handleTeamPhotoUpload(event, memberNumber) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const teamPhoto = document.getElementById(`team-photo-${memberNumber}`);
+                    const teamPlaceholder = document.getElementById(`team-placeholder-${memberNumber}`);
+                    
+                    teamPhoto.src = e.target.result;
+                    teamPhoto.classList.remove('hidden');
+                    teamPlaceholder.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Achievement functionality
+        let achievementCount = 4;
+
+        function toggleAchievement(id) {
+            const content = document.getElementById(`achievement-content-${id}`);
+            const arrow = document.getElementById(`achievement-arrow-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('hidden');
+                arrow.textContent = '▶';
+            }
+        }
+
+        function editAchievement(id) {
+            const titleInput = document.getElementById(`achievement-title-${id}`);
+            const descTextarea = document.getElementById(`achievement-desc-${id}`);
+            
+            titleInput.focus();
+            titleInput.select();
+        }
+
+        function addNewAchievement() {
+            achievementCount++;
+            const achievementsContainer = document.querySelector('.space-y-4');
+            const addButton = achievementsContainer.querySelector('.text-center');
+            
+            const newAchievement = document.createElement('div');
+            newAchievement.className = 'achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20';
+            newAchievement.innerHTML = `
+                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(${achievementCount})">
+                    <div class="flex items-center">
+                        <span id="achievement-arrow-${achievementCount}" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
+                        <input type="text" id="achievement-title-${achievementCount}" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="New Achievement" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(${achievementCount})">Edit</button>
+                        <button class="text-red-400 hover:text-red-300 text-sm transition-colors duration-300" onclick="event.stopPropagation(); removeAchievement(${achievementCount})">Remove</button>
+                    </div>
+                </div>
+                <div id="achievement-content-${achievementCount}" class="achievement-content hidden p-4 pt-0">
+                    <textarea id="achievement-desc-${achievementCount}" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement..."></textarea>
+                </div>
+            `;
+            
+            achievementsContainer.insertBefore(newAchievement, addButton);
+            
+            // Auto-focus the new achievement title for editing
+            setTimeout(() => {
+                const titleInput = document.getElementById(`achievement-title-${achievementCount}`);
+                titleInput.focus();
+                titleInput.select();
+            }, 100);
+        }
+
+        function removeAchievement(id) {
+            if (confirm('Are you sure you want to remove this achievement?')) {
+                const achievementElement = document.getElementById(`achievement-arrow-${id}`).closest('.achievement-item');
+                achievementElement.remove();
+            }
+        }
+
+        // Editable text functionality
+        function makeEditable(element) {
+            if (element.querySelector('input') || element.querySelector('textarea')) {
+                return; // Already editing
+            }
+            
+            const originalText = element.textContent;
+            const placeholder = element.getAttribute('data-placeholder') || 'Enter text';
+            const isMultiline = originalText.length > 100 || originalText.includes('\n');
+            
+            // Create input element
+            const input = document.createElement(isMultiline ? 'textarea' : 'input');
+            if (!isMultiline) input.type = 'text';
+            
+            // Copy styles and classes
+            input.className = element.className.replace('cursor-pointer', '').replace('hover:bg-', 'focus:bg-');
+            input.value = originalText;
+            input.placeholder = placeholder;
+            
+            if (isMultiline) {
+                input.rows = Math.max(3, Math.ceil(originalText.length / 50));
+                input.style.resize = 'none';
+            }
+            
+            // Style the input to match the original element
+            input.style.background = 'transparent';
+            input.style.border = '2px solid rgba(139, 92, 246, 0.3)';
+            input.style.outline = 'none';
+            input.style.width = '100%';
+            input.style.fontFamily = 'inherit';
+            input.style.fontSize = 'inherit';
+            input.style.fontWeight = 'inherit';
+            input.style.textAlign = 'inherit';
+            input.style.color = 'inherit';
+            input.style.lineHeight = 'inherit';
+            input.style.padding = '8px';
+            input.style.borderRadius = '8px';
+            
+            // Handle saving
+            function saveText() {
+                const newText = input.value.trim() || placeholder;
+                element.textContent = newText;
+                element.style.display = '';
+                input.remove();
+            }
+            
+            // Event listeners
+            input.addEventListener('blur', saveText);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    saveText();
+                }
+                if (e.key === 'Escape') {
+                    element.textContent = originalText;
+                    element.style.display = '';
+                    input.remove();
+                }
+            });
+            
+            // Replace element with input
+            element.style.display = 'none';
+            element.parentNode.insertBefore(input, element.nextSibling);
+            input.focus();
+            input.select();
+        }
+
+        // Progress bar editing functionality
+        function editProgressBar(progressContainer, color1, color2) {
+            const progressBar = progressContainer.querySelector('div');
+            const currentWidth = parseInt(progressBar.style.width) || 0;
+            
+            // Find the percentage text element (next sibling span)
+            const percentageText = progressContainer.nextElementSibling;
+            
+            const input = document.createElement('input');
+            input.type = 'range';
+            input.min = '0';
+            input.max = '100';
+            input.value = currentWidth;
+            input.className = 'w-full h-3 bg-slate-700 rounded-full appearance-none cursor-pointer';
+            input.style.background = `linear-gradient(to right, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%)`;
+            
+            // Style the range input
+            const style = document.createElement('style');
+            style.textContent = `
+                input[type="range"]::-webkit-slider-thumb {
+                    appearance: none;
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    background: linear-gradient(45deg, var(--${color1}), var(--${color2}));
+                    cursor: pointer;
+                    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+                }
+                input[type="range"]::-moz-range-thumb {
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    background: linear-gradient(45deg, var(--${color1}), var(--${color2}));
+                    cursor: pointer;
+                    border: none;
+                    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            input.addEventListener('input', function() {
+                const newValue = this.value;
+                progressBar.style.width = newValue + '%';
+                // Update the percentage text
+                if (percentageText) {
+                    percentageText.textContent = newValue + '% Complete';
+                }
+            });
+            
+            input.addEventListener('change', function() {
+                progressContainer.style.display = '';
+                input.remove();
+                style.remove();
+            });
+            
+            input.addEventListener('blur', function() {
+                progressContainer.style.display = '';
+                input.remove();
+                style.remove();
+            });
+            
+            progressContainer.style.display = 'none';
+            progressContainer.parentNode.insertBefore(input, progressContainer.nextSibling);
+            input.focus();
+        }
+
+        // Skill tag management functions
+        function addSkillTag(button, color) {
+            const skillContainer = button.parentElement;
+            
+            const newSkill = document.createElement('span');
+            newSkill.className = `editable-text bg-${color}/20 text-${color} px-3 py-1 rounded-full text-sm font-semibold cursor-pointer hover:bg-${color}/30 transition-colors relative`;
+            newSkill.setAttribute('onclick', 'makeEditable(this)');
+            newSkill.setAttribute('data-placeholder', 'Skill');
+            newSkill.textContent = 'New Skill';
+            
+            // Add remove button
+            const removeBtn = document.createElement('button');
+            removeBtn.innerHTML = '×';
+            removeBtn.className = 'absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full hover:bg-red-600 transition-colors opacity-0 hover:opacity-100';
+            removeBtn.style.fontSize = '10px';
+            removeBtn.onclick = function(e) {
+                e.stopPropagation();
+                if (confirm('Remove this skill?')) {
+                    newSkill.remove();
+                }
+            };
+            
+            newSkill.appendChild(removeBtn);
+            skillContainer.insertBefore(newSkill, button);
+            
+            // Auto-edit the new skill
+            setTimeout(() => {
+                makeEditable(newSkill);
+            }, 100);
+        }
+
+        // Add remove functionality to existing skills
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillTags = document.querySelectorAll('.editable-text[data-placeholder="Skill"]');
+            skillTags.forEach(skill => {
+                if (!skill.querySelector('button')) {
+                    skill.style.position = 'relative';
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.innerHTML = '×';
+                    removeBtn.className = 'absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full hover:bg-red-600 transition-colors opacity-0 hover:opacity-100';
+                    removeBtn.style.fontSize = '10px';
+                    removeBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        if (confirm('Remove this skill?')) {
+                            skill.remove();
+                        }
+                    };
+                    
+                    skill.appendChild(removeBtn);
+                    
+                    // Show remove button on hover
+                    skill.addEventListener('mouseenter', () => {
+                        removeBtn.style.opacity = '1';
+                    });
+                    skill.addEventListener('mouseleave', () => {
+                        removeBtn.style.opacity = '0';
+                    });
+                }
+            });
+        });
+
+        // KR management functions
+        function addNewKR(button) {
+            const krContainer = button.parentElement.previousElementSibling;
+            const colorCombos = [
+                ['neon-blue', 'electric-purple'],
+                ['hot-pink', 'sunset-orange'],
+                ['lime-green', 'neon-blue'],
+                ['electric-purple', 'deep-purple'],
+                ['sunset-orange', 'hot-pink'],
+                ['deep-purple', 'electric-purple']
+            ];
+            const randomCombo = colorCombos[Math.floor(Math.random() * colorCombos.length)];
+            const [color1, color2] = randomCombo;
+            
+            const newKR = document.createElement('div');
+            newKR.className = `kr-box bg-gradient-to-br from-${color1}/10 to-${color2}/10 border border-${color1}/30 p-6 rounded-xl shadow-lg hover:shadow-${color1}/20 transition-all duration-300 relative`;
+            newKR.innerHTML = `
+                <button class="absolute top-2 right-2 text-red-400 hover:text-red-300 text-sm transition-colors duration-300" onclick="removeKR(this)">✕</button>
+                <h4 class="editable-text font-bold text-${color1} mb-3 text-lg cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter KR title">New KR</h4>
+                <p class="editable-text text-sm text-gray-300 mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter KR description">Enter description</p>
+                <div class="mt-2 bg-slate-700 rounded-full h-3 overflow-hidden cursor-pointer" onclick="editProgressBar(this, '${color1}', '${color2}')">
+                    <div class="bg-gradient-to-r from-${color1} to-${color2} h-3 rounded-full glow-animation" style="width: 0%"></div>
+                </div>
+                <span class="editable-text text-sm font-semibold text-${color1} mt-2 block cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter percentage">0% Complete</span>
+            `;
+            
+            krContainer.appendChild(newKR);
+            
+            // Auto-focus the new KR title for editing
+            setTimeout(() => {
+                const titleElement = newKR.querySelector('h4');
+                makeEditable(titleElement);
+            }, 100);
+        }
+
+        function removeKR(button) {
+            if (confirm('Are you sure you want to remove this KR?')) {
+                const krBox = button.closest('.kr-box');
+                krBox.remove();
+            }
+        }
+
+        // Navigation highlighting based on scroll position
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveNav() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Initial call
+        });
+
+        // Color Palette Switching Functions
+        function togglePaletteSelector() {
+            const selector = document.getElementById('color-palette-selector');
+            const isVisible = !selector.classList.contains('translate-x-full');
+            
+            if (isVisible) {
+                selector.classList.add('translate-x-full');
+            } else {
+                selector.classList.remove('translate-x-full');
+            }
+        }
+
+        function changePalette(paletteName) {
+            const colors = colorPalettes[paletteName];
+            
+            // Update CSS custom properties
+            const root = document.documentElement;
+            root.style.setProperty('--color-primary', colors.primary);
+            root.style.setProperty('--color-secondary', colors.secondary);
+            root.style.setProperty('--color-accent', colors.accent);
+            root.style.setProperty('--color-success', colors.success);
+            root.style.setProperty('--color-warning', colors.warning);
+            root.style.setProperty('--color-info', colors.info);
+            root.style.setProperty('--color-dark-bg', colors['dark-bg']);
+            root.style.setProperty('--color-card-dark', colors['card-dark']);
+            root.style.setProperty('--color-text-light', colors['text-light']);
+            
+            // Update Tailwind config
+            tailwind.config.theme.extend.colors = {
+                'neon-blue': colors.primary,
+                'electric-purple': colors.secondary,
+                'hot-pink': colors.accent,
+                'lime-green': colors.success,
+                'sunset-orange': colors.warning,
+                'deep-purple': colors.info,
+                'dark-bg': colors['dark-bg'],
+                'card-dark': colors['card-dark'],
+                'text-light': colors['text-light']
+            };
+            
+            // Force Tailwind to regenerate styles
+            if (window.tailwind && window.tailwind.refresh) {
+                window.tailwind.refresh();
+            }
+            
+            // Update active palette indicator
+            document.querySelectorAll('.palette-option').forEach(option => {
+                option.classList.remove('border-white/50', 'bg-white/10');
+            });
+            
+            const selectedOption = document.querySelector(`[data-palette="${paletteName}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('border-white/50', 'bg-white/10');
+            }
+            
+            // Apply immediate style updates to key elements
+            updateElementStyles(colors);
+            
+            // Close palette selector after selection
+            setTimeout(() => {
+                togglePaletteSelector();
+            }, 500);
+            
+            // Show confirmation
+            showPaletteChangeNotification(paletteName);
+        }
+
+        function updateElementStyles(colors) {
+            // Update background gradients
+            document.body.style.background = `linear-gradient(135deg, ${colors['dark-bg']}, ${colors['card-dark']}, #374151)`;
+            
+            // Update all gradient elements
+            const gradientElements = document.querySelectorAll('[class*="gradient"]');
+            gradientElements.forEach(element => {
+                // This is a simplified update - in a real implementation, you'd want more sophisticated color mapping
+                if (element.classList.contains('bg-gradient-to-r')) {
+                    element.style.background = `linear-gradient(to right, ${colors.primary}, ${colors.secondary})`;
+                }
+            });
+        }
+
+        function showPaletteChangeNotification(paletteName) {
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-6 left-1/2 transform -translate-x-1/2 bg-card-dark/95 backdrop-blur-md border border-electric-purple/30 rounded-lg px-6 py-3 shadow-2xl z-50 transition-all duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 bg-neon-blue rounded-full animate-pulse"></div>
+                    <span class="text-white font-medium">Switched to ${paletteName.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} palette!</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(-100px)';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize with Ocean Breeze as active
+        document.addEventListener('DOMContentLoaded', function() {
+            const oceanBreezeOption = document.querySelector('[data-palette="oceanBreeze"]');
+            if (oceanBreezeOption) {
+                oceanBreezeOption.classList.add('border-white/50', 'bg-white/10');
+            }
+        });
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983907bb57de3c00',t:'MTc1ODYxOTg5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
