@@ -355,27 +355,9 @@
                         <div class="flex flex-col items-center space-y-4">
                             <div class="relative float-animation">
                                 <div id="profile-photo-container" class="w-48 h-48 bg-gradient-to-br from-electric-purple/30 to-neon-blue/30 border-4 border-electric-purple/50 rounded-full flex items-center justify-center overflow-hidden shadow-2xl glow-animation">
-                                    <img id="profile-photo" src="" alt="Profile Photo" class="w-full h-full object-cover hidden">
-                                    <div id="profile-placeholder" class="text-center">
-                                        <div class="text-4xl text-neon-blue mb-2">📷</div>
-                                        <p class="text-sm text-gray-300 px-4">Click the + button to upload your photo</p>
-                                        <p class="text-xs text-gray-400 mt-2 px-2">Supports JPG, PNG, GIF files</p>
-                                    </div>
+                                    <img src="static/profile.jpg" alt="Profile Photo" class="w-full h-full object-cover">
                                 </div>
-                                <button onclick="document.getElementById('profile-upload').click()" class="absolute bottom-2 right-2 bg-gradient-to-r from-electric-purple to-hot-pink text-white p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-electric-purple/50 pulse-animation">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                    </svg>
-                                </button>
                             </div>
-                            <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
-                            <!--<div class="text-center space-y-2">
-                                <button onclick="removeProfilePhoto()" class="text-sm text-neon-blue hover:text-hot-pink transition-colors duration-300 hover:scale-105 block">Remove Photo</button>
-                                <div class="text-xs text-gray-400">
-                                    <p>💡 <strong>Pro Tip:</strong> For best results, use a square photo (1:1 ratio)</p>
-                                    <p>📱 You can also drag & drop your photo onto the circle!</p>
-                                </div>
-                            </div>-->
                         </div>
                         
                         <!-- About Text Section -->
