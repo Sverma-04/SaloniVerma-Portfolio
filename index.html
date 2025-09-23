@@ -850,38 +850,7 @@
                 </div>
 
                 <!-- About Me Description -->
-                <div class="grid md:grid-cols-3 gap-12 items-center mt-12">
-                    <!-- Photo Upload Section -->
-                    <div class="flex flex-col items-center space-y-4 slide-in-left">
-                        <div class="relative float-animation">
-                            <div id="profile-photo-container" class="w-48 h-48 bg-gradient-to-br from-electric-purple/30 to-neon-blue/30 border-4 border-electric-purple/50 rounded-full flex items-center justify-center overflow-hidden shadow-2xl glow-animation">
-                                <img id="profile-photo" src="" alt="Profile Photo" class="w-full h-full object-cover hidden">
-                                <div id="profile-placeholder" class="text-center">
-                                    <div class="text-4xl text-neon-blue mb-2">📷</div>
-                                    <p class="text-sm text-gray-300">Upload Your Photo</p>
-                                </div>
-                            </div>
-                            <button onclick="document.getElementById('profile-upload').click()" class="absolute bottom-2 right-2 bg-gradient-to-r from-electric-purple to-hot-pink text-white p-2 rounded-full hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-electric-purple/50">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePhotoUpload(event)">
-                        <button onclick="removeProfilePhoto()" class="text-sm text-neon-blue hover:text-hot-pink transition-colors duration-300 hover:scale-105">Remove Photo</button>
-                    </div>
-                    
-                    <!-- About Text Section -->
-                    <div class="md:col-span-2 space-y-6 slide-in-right">
-                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your first paragraph">I'm a passionate leader with over 9 years of experience in scaling offensive security functions and building efficient teams. I currently lead a DAST and Pentesting team at TII grown from a solo role into a global functional team. We as a team deliver impactful findings, ensuring Target's external exposed surface is safe from threat actors.</div>
-                        <div class="editable-text text-lg leading-relaxed text-gray-300 fade-in-up cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors mt-6" onclick="makeEditable(this)" data-placeholder="Enter your second paragraph">My expertise lies in Penetration testing (API and Web), strategic planning, team development, and fostering collaborative environments. I'm currently exploring the AI space in offensive security and trying to build my own agents to enhance existing Cyber functionalities. My approach combines data-driven decision making with human-centered leadership based on metrics.</div>
-                        <div class="flex space-x-4 pt-4">
-                            <div class="editable-text bg-gradient-to-r from-electric-purple to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-electric-purple/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 1">Strategy</div>
-                            <div class="editable-text bg-gradient-to-r from-hot-pink to-sunset-orange text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-hot-pink/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 2">Leadership</div>
-                            <div class="editable-text bg-gradient-to-r from-lime-green to-neon-blue text-white px-4 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-lime-green/50 cursor-pointer text-center" onclick="makeEditable(this)" data-placeholder="Skill 3">Innovation</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
