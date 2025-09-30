@@ -387,7 +387,7 @@
                                 <div class="space-y-4 mb-6">
                                     <div class="editable-text text-base leading-relaxed text-gray-300 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI vision">The future of cybersecurity lies in intelligent automation. I'm building AI agents that don't replace human expertise but amplify it.</div>
                                     
-                                    <div class="editable-text text-base leading-relaxed text-gray-300 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI approach">My approach focuses on practical AI implementations that solve real security challenges: reducing alert fatigue, accelerating threat response, and enabling proactive strategies that will allow teams to focus on strategic security rather than repetitive tasks.</div>
+                                    <div class="editable-text text-base leading-relaxed text-gray-300 cursor-pointer p-3 rounded-lg hover:bg-gray-800/20 transition-colors" onclick="makeEditable(this)" data-placeholder="Enter your AI approach">My approach focuses on practical AI implementations that solve real security challenges: reducing alert fatigue, providing smooth communication channels between application teams and security teams making sure security and dev world succeeeds parallel, accelerating threat response, and enabling proactive strategies that will allow teams to focus on strategic security rather than repetitive tasks.</div>
                                 </div>
                                 
                                 <div class="flex flex-wrap gap-2 mb-6">
@@ -409,64 +409,67 @@
                         <div class="space-y-4">
                             <!-- Achievement 1 -->
                             <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
-                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
+                                <button type="button" class="achievement-header flex items-center justify-between w-full p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300 focus:outline-none" aria-expanded="false" aria-controls="achievement-content-1" onclick="toggleAchievement(1)">
                                     <div class="flex items-center flex-1">
                                         <span id="achievement-arrow-1" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
-                                        <input type="text" id="achievement-title-1" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Led 15+ successful product launches" onclick="event.stopPropagation()">
+                                        <span class="font-semibold text-text-light flex-1">Led 15+ successful product launches</span>
                                     </div>
-                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(1)">Edit</button>
-                                </div>
-                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0">
-                                    <textarea id="achievement-desc-1" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">Spearheaded the launch of 15 major product releases over 3 years, including our flagship mobile app that gained 100K+ users in the first month. Each launch involved coordinating cross-functional teams, managing timelines, and ensuring quality delivery. Notable successes include the AI-powered recommendation engine that increased user engagement by 65%.</textarea>
+                                    <span class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300">Expand</span>
+                                </button>
+                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0" aria-hidden="true">
+                                    <div class="text-gray-300">
+                                        Spearheaded the launch of 15 major product releases over 3 years, including our flagship mobile app that gained 100K+ users in the first month. Each launch involved coordinating cross-functional teams, managing timelines, and ensuring quality delivery. Notable successes include the AI-powered recommendation engine that increased user engagement by 65%.
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Achievement 2 -->
-                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
-                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(2)">
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20"></div>
+                                <button type="button" class="achievement-header flex items-center justify-between w-full p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300 focus:outline-none" aria-expanded="false" aria-controls="achievement-content-2" onclick="toggleAchievement(2)">
                                     <div class="flex items-center flex-1">
                                         <span id="achievement-arrow-2" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
-                                        <input type="text" id="achievement-title-2" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Managed teams of 20+ professionals" onclick="event.stopPropagation()">
+                                        <span class="font-semibold text-text-light flex-1">Managed teams of 20+ professionals</span>
                                     </div>
-                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(2)">Edit</button>
-                                </div>
-                                <div id="achievement-content-2" class="achievement-content hidden p-4 pt-0">
-                                    <textarea id="achievement-desc-2" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">Built and led diverse teams across engineering, design, product, and QA departments. Implemented agile methodologies that improved team productivity by 35%. Focused on creating inclusive environments where every team member could thrive, resulting in 95% employee satisfaction and minimal turnover.</textarea>
+                                    <span class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300">Expand</span>
+                                </button>
+                                <div id="achievement-content-2" class="achievement-content hidden p-4 pt-0" aria-hidden="true">
+                                    <div class="text-gray-300">
+                                        Built and led diverse teams across engineering, design, product, and QA departments. Implemented agile methodologies that improved team productivity by 35%. Focused on creating inclusive environments where every team member could thrive, resulting in 95% employee satisfaction and minimal turnover.
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Achievement 3 -->
                             <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
-                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(3)">
+                                <button type="button" class="achievement-header flex items-center justify-between w-full p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300 focus:outline-none" aria-expanded="false" aria-controls="achievement-content-3" onclick="toggleAchievement(3)">
                                     <div class="flex items-center flex-1">
                                         <span id="achievement-arrow-3" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
-                                        <input type="text" id="achievement-title-3" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Increased efficiency by 40%" onclick="event.stopPropagation()">
+                                        <span class="font-semibold text-text-light flex-1">Increased efficiency by 40%</span>
                                     </div>
-                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(3)">Edit</button>
-                                </div>
-                                <div id="achievement-content-3" class="achievement-content hidden p-4 pt-0">
-                                    <textarea id="achievement-desc-3" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">Streamlined workflows and implemented automation tools that reduced manual processes by 40%. Introduced new project management systems and optimized resource allocation. This efficiency gain saved the company $500K annually and allowed the team to take on 25% more projects without increasing headcount.</textarea>
+                                    <span class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300">Expand</span>
+                                </button>
+                                <div id="achievement-content-3" class="achievement-content hidden p-4 pt-0" aria-hidden="true">
+                                    <div class="text-gray-300">
+                                        Streamlined workflows and implemented automation tools that reduced manual processes by 40%. Introduced new project management systems and optimized resource allocation. This efficiency gain saved the company $500K annually and allowed the team to take on 25% more projects without increasing headcount.
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Achievement 4 -->
                             <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
-                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(4)">
+                                <button type="button" class="achievement-header flex items-center justify-between w-full p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300 focus:outline-none" aria-expanded="false" aria-controls="achievement-content-4" onclick="toggleAchievement(4)">
                                     <div class="flex items-center flex-1">
                                         <span id="achievement-arrow-4" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
-                                        <input type="text" id="achievement-title-4" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Mentored 50+ team members" onclick="event.stopPropagation()">
+                                        <span class="font-semibold text-text-light flex-1">Mentored 50+ team members</span>
                                     </div>
-                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(4)">Edit</button>
-                                </div>
-                                <div id="achievement-content-4" class="achievement-content hidden p-4 pt-0">
-                                    <textarea id="achievement-desc-4" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">Established a comprehensive mentorship program that has guided over 50 professionals in their career development. Created structured learning paths, conducted regular one-on-ones, and facilitated skill-building workshops. 80% of mentees received promotions within 18 months, and many have gone on to leadership roles themselves.</textarea>
+                                    <span class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300">Expand</span>
+                                </button>
+                                <div id="achievement-content-4" class="achievement-content hidden p-4 pt-0" aria-hidden="true">
+                                    <div class="text-gray-300">
+                                        Established a comprehensive mentorship program that has guided over 50 professionals in their career development. Created structured learning paths, conducted regular one-on-ones, and facilitated skill-building workshops. 80% of mentees received promotions within 18 months, and many have gone on to leadership roles themselves.
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Add New Achievement Button -->
-                            <!--<div class="text-center pt-4">
-                                <button onclick="addNewAchievement()" class="bg-gradient-to-r from-lime-green to-neon-blue text-white px-6 py-3 rounded-lg hover:scale-105 transition-all duration-300 font-semibold shadow-lg hover:shadow-lime-green/50 glow-animation">+ Add New Achievement</button>
-                            </div>-->
                         </div>
                     </div>
                 </div>
