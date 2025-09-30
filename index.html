@@ -349,7 +349,7 @@
                     <div class="w-32 h-1 bg-gradient-to-r from-neon-blue to-hot-pink mx-auto mb-8 glow-animation"></div>
                 </div>
                  <div class="text-center mb-6">
-                                    <div class="editable-text text-3xl font-bold bg-gradient-to-r from-lime-green to-neon-yellow bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter vision title">Sr Engineering Manager, Target Corporation India</div>
+                                    <div class="editable-text text-3xl font-bold bg-gradient-to-r from-lime-green to-lime-green bg-clip-text text-transparent mb-4 cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter vision title">Sr Engineering Manager, Target Corporation India</div>
                                     <div class="w-20 h-1 bg-gradient-to-r from-lime-green to-neon-blue mx-auto rounded-full glow-animation"></div>
                                 </div>
                 <!-- About Me Description & AI Vision -->
@@ -410,8 +410,54 @@
                                 <!-- Key Achievements Section -->
                 <div class="mt-12 fade-in-up">
                     <div class="gradient-border p-8 max-w-4xl mx-auto hover-lift">
-                        <div class="editable-text text-3xl font-bold bg-gradient-to-r from-black to-black bg-clip-text text-transparent mb-6 text-center pulse-animation cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter achievements title">Key Achievements as a Cyber Security Manager</div>
+                        <div class="editable-text text-3xl font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent mb-6 text-center pulse-animation cursor-pointer" onclick="makeEditable(this)" data-placeholder="Enter achievements title">Key Achievements as a Cyber Security Manager</div>
                         <div class="space-y-4">
+                            <!-- Achievement 1 -->
+
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-1" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
+                                        <input type="text" id="achievement-title-1" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Scaled pentesting team from 1 to 19 members globally via mentoring" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(1)">Edit</button>
+                                </div>
+                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-1" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">add text.</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Achievement 2.1 -->
+
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-1" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
+                                        <input type="text" id="achievement-title-1" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Designed self-service DAST automation(patent-potential) projected to save ~468+ hours/year impacting 500+ apps." onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(1)">Edit</button>
+                                </div>
+                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-1" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">add text.</textarea>
+                                </div>
+                            </div>
+
+
+                            <!-- Achievement 2.2 -->
+
+                            <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
+                                <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
+                                    <div class="flex items-center flex-1">
+                                        <span id="achievement-arrow-1" class="text-neon-blue mr-3 transition-transform duration-300">▶</span>
+                                        <input type="text" id="achievement-title-1" class="font-semibold text-text-light bg-transparent border-none focus:outline-none focus:bg-electric-purple/20 rounded px-2 py-1 flex-1" value="Scaled AppSec charter from basic DAST onboarding to full-spectrum vulnerability validation" onclick="event.stopPropagation()">
+                                    </div>
+                                    <button class="text-neon-blue hover:text-hot-pink text-sm transition-colors duration-300" onclick="event.stopPropagation(); editAchievement(1)">Edit</button>
+                                </div>
+                                <div id="achievement-content-1" class="achievement-content hidden p-4 pt-0">
+                                    <textarea id="achievement-desc-1" class="w-full p-3 bg-dark-bg/70 border border-electric-purple/30 rounded-lg text-gray-300 focus:border-neon-blue focus:outline-none resize-none focus:shadow-lg focus:shadow-neon-blue/20" rows="3" placeholder="Add detailed description of this achievement...">add text.</textarea>
+                                </div>
+                            </div>
+
                             <!-- Achievement 1 -->
                             <div class="achievement-item border border-electric-purple/30 rounded-lg overflow-hidden bg-card-dark/50 hover:bg-card-dark/70 transition-all duration-300 hover:shadow-lg hover:shadow-electric-purple/20">
                                 <div class="achievement-header flex items-center justify-between p-4 cursor-pointer hover:bg-electric-purple/10 transition-colors duration-300" onclick="toggleAchievement(1)">
